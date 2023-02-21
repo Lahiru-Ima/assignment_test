@@ -1,5 +1,6 @@
 import 'package:assignment_mypos/screens/department_list.dart';
 import 'package:assignment_mypos/screens/employee_screen.dart';
+import 'package:assignment_mypos/screens/user_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/employee_list.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: const EmployeeList(),
+      home: const UserList(),
     );
   }
 }

@@ -20,14 +20,41 @@ class EmployeeList extends StatelessWidget {
               );
             } else if (snapshot.hasData) {
               List<Employee>? employees = snapshot.data;
-              return ListView.builder(
-                itemCount: employees?.length,
+              return ListView.separated(
+                itemCount: snapshot.data?.length ?? 0,
                 itemBuilder: (context, index) {
-                  Employee employee = employees![index];
-                  return ListTile(
-                      title: Text(
-                    employee.empName,
-                  ));
+                  var employee = snapshot.data?[index];
+                  return Container(
+                    height: 70.0,
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        Expanded(flex: 2, child: Text('${employee?.empNo}')),
+                        Expanded(flex: 3, child: Text('${employee?.empName}')),
+                        Expanded(
+                            flex: 3,
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      borderRadius:
+                                          BorderRadius.circular(10.0)),
+                                  child: Center(child: Text('Edit')),
+                                )
+                              ],
+                            )),
+                      ],
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const Divider(
+                    thickness: 0.5,
+                    height: 0.5,
+                  );
                 },
               );
             }

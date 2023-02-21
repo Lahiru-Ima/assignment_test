@@ -20,7 +20,7 @@ class DepartmentList extends StatelessWidget {
               );
             } else if (snapshot.hasData) {
               List<Department>? departments = snapshot.data;
-              return ListView.builder(
+              return ListView.separated(
                 itemCount: departments!.length,
                 itemBuilder: (context, index) {
                   Department department = departments[index];
@@ -28,6 +28,12 @@ class DepartmentList extends StatelessWidget {
                     title: Text(
                       department.departmentName,
                     ),
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const Divider(
+                    thickness: 0.5,
+                    height: 0.5,
                   );
                 },
               );

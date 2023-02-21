@@ -27,4 +27,11 @@ class EmployeeService {
       return Employee.fromJson(jsonDecode(response.body));
     }
   }
+
+  // static Future<Employee> postEmployee() {
+  //   final response = http.post(
+  //     Uri.parse("${Config.BACKEND_URL}/api/v1.0/Employee/2"),
+  //     headers: {"apiToken": "?D(G+KbPeSgVkYp3s6v9y\$B&E)H@McQf"},
+  //   );
+  // }
 }
